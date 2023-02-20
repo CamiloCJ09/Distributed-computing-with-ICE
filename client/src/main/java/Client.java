@@ -1,5 +1,10 @@
+import java.util.Scanner;
+import java.net.InetAddress;
+
+
 public class Client
 {
+    public final static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args)
     {
         java.util.List<String> extraArgs = new java.util.ArrayList<>();
@@ -16,7 +21,24 @@ public class Client
             {
                 throw new Error("Invalid proxy");
             }
-            printer.printString("Hello World!");
+            String localIP = InetAddress.getLocalHost().getHostName();
+            System.out.println("¿Qué numero de la serie fibonacci desea ver?");
+            String n = scanner.nextLine();
+
+            while (!n.equalsIgnoreCase("exit")) {
+                if (Integer.parseInt(n) >= 0) {
+                    int number = printer.fibonacciString(localIP + ":" + n);
+                    System.out.println(localIP + ": " + number);
+                    System.out.println("¿Qué numero de la serie fibonacci desea ver?");
+                    n = scanner.nextLine();
+                }else{
+                    System.out.println(localIP+":"+n);
+                    System.out.println(localIP+":"+0);
+                    System.out.println("¿Qué numero de la serie fibonacci desea ver?");
+                    n = scanner.nextLine();                    
+                }
+            
         }
     }
+}
 }
