@@ -3,6 +3,6 @@ module Demo
     interface Printer
     {
         void printString(string s);
-        String fibonacciString(int n);
+        string fibonacciString(int n);
     }
 }
