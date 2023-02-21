@@ -5,6 +5,5 @@
 #
 Printer.Endpoints=tcp -p 9099
 #
-# Only listen on the ZeroTier's LIASOn1 interface by default.
-#
-Ice.Default.Host=10.147.19.138
+# Now listen on the ZeroTier's LIASOn7 interface
+Ice.Default.Host=10.147.19.158

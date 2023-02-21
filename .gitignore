@@ -1,5 +1,6 @@
 # Ignore project-specific cache and directories
 
-
+/bin
+.class
 # Ignore Gradle build output directory
 
