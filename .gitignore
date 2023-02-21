@@ -1,5 +1,5 @@
 # Ignore project-specific cache and directories
-.vscode
+
 
 # Ignore Gradle build output directory
-build
+

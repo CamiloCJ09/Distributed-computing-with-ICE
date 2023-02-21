@@ -1,24 +1,22 @@
 import java.util.Scanner;
 import java.net.InetAddress;
 
-
-public class Client
-{
+public class Client {
     public final static Scanner scanner = new Scanner(System.in);
-    public static void main(String[] args)
-    {
+
+    public static void main(String[] args) {
         java.util.List<String> extraArgs = new java.util.ArrayList<>();
 
-        try(com.zeroc.Ice.Communicator communicator = com.zeroc.Ice.Util.initialize(args,"config.client",extraArgs))
-        {
-            //com.zeroc.Ice.ObjectPrx base = communicator.stringToProxy("SimplePrinter:default -p 10000");
+        try (com.zeroc.Ice.Communicator communicator = com.zeroc.Ice.Util.initialize(args, "config.client",
+                extraArgs)) {
+            // com.zeroc.Ice.ObjectPrx base =
+            // communicator.stringToProxy("SimplePrinter:default -p 10000");
             Demo.PrinterPrx twoway = Demo.PrinterPrx.checkedCast(
-                communicator.propertyToProxy("Printer.Proxy")).ice_twoway().ice_secure(false);
-            //Demo.PrinterPrx printer = Demo.PrinterPrx.checkedCast(base);
+                    communicator.propertyToProxy("Printer.Proxy")).ice_twoway().ice_secure(false);
+            // Demo.PrinterPrx printer = Demo.PrinterPrx.checkedCast(base);
             Demo.PrinterPrx printer = twoway.ice_oneway();
 
-            if(printer == null)
-            {
+            if (printer == null) {
                 throw new Error("Invalid proxy");
             }
             String localIP = InetAddress.getLocalHost().getHostName();
@@ -31,14 +29,14 @@ public class Client
                     System.out.println(localIP + ": " + number);
                     System.out.println("¿Qué numero de la serie fibonacci desea ver?");
                     n = scanner.nextLine();
-                }else{
-                    System.out.println(localIP+":"+n);
-                    System.out.println(localIP+":"+0);
+                } else {
+                    System.out.println(localIP + ":" + n);
+                    System.out.println(localIP + ":" + 0);
                     System.out.println("¿Qué numero de la serie fibonacci desea ver?");
-                    n = scanner.nextLine();                    
+                    n = scanner.nextLine();
                 }
-            
+
+            }
         }
     }
-}
 }
