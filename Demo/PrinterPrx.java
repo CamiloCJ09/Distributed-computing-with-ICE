@@ -53,6 +53,46 @@ public interface PrinterPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
+    default String fibonacciString(String n)
+    {
+        return fibonacciString(n, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default String fibonacciString(String n, java.util.Map<String, String> context)
+    {
+        return _iceI_fibonacciStringAsync(n, context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<java.lang.String> fibonacciStringAsync(String n)
+    {
+        return _iceI_fibonacciStringAsync(n, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<java.lang.String> fibonacciStringAsync(String n, java.util.Map<String, String> context)
+    {
+        return _iceI_fibonacciStringAsync(n, context, false);
+    }
+
+    /**
+     * @hidden
+     * @param iceP_n -
+     * @param context -
+     * @param sync -
+     * @return -
+     **/
+    default com.zeroc.IceInternal.OutgoingAsync<java.lang.String> _iceI_fibonacciStringAsync(String iceP_n, java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<java.lang.String> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "fibonacciString", null, sync, null);
+        f.invoke(true, context, null, ostr -> {
+                     ostr.writeString(iceP_n);
+                 }, istr -> {
+                     String ret;
+                     ret = istr.readString();
+                     return ret;
+                 });
+        return f;
+    }
+
     /**
      * Contacts the remote server to verify that the object implements this type.
      * Raises a local exception if a communication error occurs.

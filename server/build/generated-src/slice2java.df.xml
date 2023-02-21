@@ -1,10 +1,10 @@
 <state>
-  <timestamp value='1676923402376' />
+  <timestamp value='1677017331052' />
   <sourceSet name='default'>
-    <source name='C:\Users\semillero\Documents\Camilo Campaz\Sem7\github\helloworld-ice\helloworld\Printer.ice'>
-      <file name='C:\Users\semillero\Documents\Camilo Campaz\Sem7\github\helloworld-ice\helloworld\server\build\generated-src\Demo\Printer.java' />
-      <file name='C:\Users\semillero\Documents\Camilo Campaz\Sem7\github\helloworld-ice\helloworld\server\build\generated-src\Demo\PrinterPrx.java' />
-      <file name='C:\Users\semillero\Documents\Camilo Campaz\Sem7\github\helloworld-ice\helloworld\server\build\generated-src\Demo\_PrinterPrxI.java' />
+    <source name='C:\Users\johan\OneDrive\Escritorio\GIT\Distributed-computing-with-ICE\Printer.ice'>
+      <file name='C:\Users\johan\OneDrive\Escritorio\GIT\Distributed-computing-with-ICE\server\build\generated-src\Demo\Printer.java' />
+      <file name='C:\Users\johan\OneDrive\Escritorio\GIT\Distributed-computing-with-ICE\server\build\generated-src\Demo\PrinterPrx.java' />
+      <file name='C:\Users\johan\OneDrive\Escritorio\GIT\Distributed-computing-with-ICE\server\build\generated-src\Demo\_PrinterPrxI.java' />
     </source>
     <arg value='C:\Program Files\ZeroC\Ice-3.7.8\\bin\slice2java.exe' />
     <arg value='-IC:\Program Files\ZeroC\Ice-3.7.8\\slice' />

@@ -14,7 +14,7 @@ public class Client {
             Demo.PrinterPrx twoway = Demo.PrinterPrx.checkedCast(
                     communicator.propertyToProxy("Printer.Proxy")).ice_twoway().ice_secure(false);
             // Demo.PrinterPrx printer = Demo.PrinterPrx.checkedCast(base);
-            Demo.PrinterPrx printer = twoway.ice_oneway();
+            Demo.PrinterPrx printer = twoway.ice_twoway();
 
             if (printer == null) {
                 throw new Error("Invalid proxy");
@@ -25,7 +25,8 @@ public class Client {
 
             while (!n.equalsIgnoreCase("exit")) {
                 if (Integer.parseInt(n) >= 0) {
-                    int number = printer.fibonacciString(localIP + ":" + n);
+                //    int fibo = Integer.parseInt(n);
+                    String number = printer.fibonacciString(localIP + ":" + n);
                     System.out.println(localIP + ": " + number);
                     System.out.println("¿Qué numero de la serie fibonacci desea ver?");
                     n = scanner.nextLine();
@@ -37,6 +38,9 @@ public class Client {
                 }
 
             }
+        }catch(Exception exception){
+            System.err.println(exception);
+            System.exit(1);
         }
     }
 }
