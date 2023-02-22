@@ -25,10 +25,7 @@ public class PrinterI implements Demo.Printer {
         for (int i = 0; i < num; i++) {
             fibString += fib[i] + " ";
         }
-        System.out.println(fibString);
-        System.out.println("holi");
-        System.out.println("Cliente: " + array[0] + " numero: " + array[1]);
-        System.out.println("holi1");
+        System.out.println("Cliente: " + array[0] + " numero: " + fibString);
         return String.valueOf(fib[num - 1]);
 
     }
