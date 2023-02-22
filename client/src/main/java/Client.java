@@ -20,7 +20,8 @@ public class Client {
                 throw new Error("Invalid proxy");
             }
             String localIP = InetAddress.getLocalHost().getHostName();
-            System.out.println("¿Que numero de la serie fibonacci desea ver?");
+            String defaultText = "¿Que numero de la serie fibonacci desea ver?";
+            System.out.println(defaultText);
             String n = scanner.nextLine();
 
             while (!n.equalsIgnoreCase("exit")) {
@@ -28,12 +29,12 @@ public class Client {
                 //    int fibo = Integer.parseInt(n);
                     String number = printer.fibonacciString(localIP + ":" + n);
                     System.out.println(localIP + ": " + number);
-                    System.out.println("¿Qué numero de la serie fibonacci desea ver?");
+                    System.out.println(defaultText);
                     n = scanner.nextLine();
                 } else {
                     System.out.println(localIP + ":" + n);
                     System.out.println(localIP + ":" + 0);
-                    System.out.println("¿Qué numero de la serie fibonacci desea ver?");
+                    System.out.println(defaultText);
                     n = scanner.nextLine();
                 }
 
