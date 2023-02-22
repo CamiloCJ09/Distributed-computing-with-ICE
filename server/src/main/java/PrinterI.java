@@ -11,6 +11,7 @@ public class PrinterI implements Demo.Printer {
         String array[] = n.split(":");
         int num = Integer.parseInt(array[1]);
         System.out.println("Cliente: " + array[0] + " numero: " + array[1]);
+        System.out.println("holi1");
 
         int[] fib = new int[num];
         fib[0] = 0;
