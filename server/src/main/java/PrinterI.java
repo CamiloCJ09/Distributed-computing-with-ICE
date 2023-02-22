@@ -10,8 +10,7 @@ public class PrinterI implements Demo.Printer {
     public String fibonacciString(String n, com.zeroc.Ice.Current current) {
         String array[] = n.split(":");
         int num = Integer.parseInt(array[1]);
-        System.out.println("Cliente: " + array[0] + " numero: " + array[1]);
-        System.out.println("holi1");
+        
 
         int[] fib = new int[num];
         fib[0] = 0;
@@ -28,6 +27,8 @@ public class PrinterI implements Demo.Printer {
         }
         System.out.println(fibString);
         System.out.println("holi");
+        System.out.println("Cliente: " + array[0] + " numero: " + array[1]);
+        System.out.println("holi1");
         return String.valueOf(fib[num - 1]);
 
     }
