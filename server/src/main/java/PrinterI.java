@@ -25,7 +25,8 @@ public class PrinterI implements Demo.Printer {
         for (int i = 0; i < num; i++) {
             fibString += fib[i] + " ";
         }
-        return fibString;
+        System.out.println(fibString);
+        return String.valueOf(fib[num - 1]);
 
     }
 }
