@@ -13,7 +13,7 @@ The main design goals of **Ice** are:
 - Provide an implementation that has built-in security, making it suitable for use over insecure public networks.
 
 
-## Configuration 🫰
+## Configuration 👓
 
 For this demo we're going to use a project with two sub-projects to build the Client and Server applications. The requirements for our sub-projects are the same so we'll do all the setup in the subprojects block of the root project, which applies to all sub-projects. Edit the generated build.gradle file to look like the one below:
 
@@ -40,8 +40,8 @@ include 'server'
 
 ## Run the java jars to execute the program 🎇
 Configure the host of the server in the config.server file
-´´´
+```bash
 java -jar server/build/libs/server.jar
 java -jar client/build/libs/client.jar
-´´´
+```
 The client runs and exits without producing any output; however, in the server window, we see the fibonaccidd that is produced by the printer. To get rid of the server, we interrupt it on the command line for now. 
