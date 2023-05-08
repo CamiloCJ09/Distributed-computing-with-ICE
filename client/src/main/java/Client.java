@@ -14,9 +14,14 @@ public class Client {
             Demo.PrinterPrx twoway = Demo.PrinterPrx.checkedCast(
                     communicator.propertyToProxy("Printer.Proxy")).ice_twoway().ice_secure(false);
             // Demo.PrinterPrx printer = Demo.PrinterPrx.checkedCast(base);
-            Demo.PrinterPrx printer = twoway.ice_twoway();
 
-            if (printer == null) {
+            Talker.ChatControllerPrx tControllerPrx = Talker.ChatControllerPrx.checkedCast(
+                communicator.propertyToProxy("Chat.Proxy").ice_twoway().ice_secure(false)
+            );
+            Demo.PrinterPrx printer = twoway.ice_twoway();
+            Talker.ChatControllerPrx chat = tControllerPrx.ice_twoway();
+
+            if (printer == null && chat == null) {
                 throw new Error("Invalid proxy");
             }
             String localIP = InetAddress.getLocalHost().getHostName();

@@ -17,6 +17,39 @@ package Talker;
 
 public interface ChatClientPrx extends com.zeroc.Ice.ObjectPrx
 {
+    default void notifyCallback()
+    {
+        notifyCallback(com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default void notifyCallback(java.util.Map<String, String> context)
+    {
+        _iceI_notifyCallbackAsync(context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> notifyCallbackAsync()
+    {
+        return _iceI_notifyCallbackAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> notifyCallbackAsync(java.util.Map<String, String> context)
+    {
+        return _iceI_notifyCallbackAsync(context, false);
+    }
+
+    /**
+     * @hidden
+     * @param context -
+     * @param sync -
+     * @return -
+     **/
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_notifyCallbackAsync(java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "notifyCallback", null, sync, null);
+        f.invoke(false, context, null, null, null);
+        return f;
+    }
+
     default void reciveMessage(String message)
     {
         reciveMessage(message, com.zeroc.Ice.ObjectPrx.noExplicitContext);

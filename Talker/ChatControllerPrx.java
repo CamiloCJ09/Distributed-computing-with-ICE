@@ -91,39 +91,37 @@ public interface ChatControllerPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default void subscribe(CallbackPrx callback, ChatClientPrx client)
+    default void subscribe(ChatClientPrx client)
     {
-        subscribe(callback, client, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        subscribe(client, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void subscribe(CallbackPrx callback, ChatClientPrx client, java.util.Map<String, String> context)
+    default void subscribe(ChatClientPrx client, java.util.Map<String, String> context)
     {
-        _iceI_subscribeAsync(callback, client, context, true).waitForResponse();
+        _iceI_subscribeAsync(client, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> subscribeAsync(CallbackPrx callback, ChatClientPrx client)
+    default java.util.concurrent.CompletableFuture<Void> subscribeAsync(ChatClientPrx client)
     {
-        return _iceI_subscribeAsync(callback, client, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_subscribeAsync(client, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> subscribeAsync(CallbackPrx callback, ChatClientPrx client, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> subscribeAsync(ChatClientPrx client, java.util.Map<String, String> context)
     {
-        return _iceI_subscribeAsync(callback, client, context, false);
+        return _iceI_subscribeAsync(client, context, false);
     }
 
     /**
      * @hidden
-     * @param iceP_callback -
      * @param iceP_client -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_subscribeAsync(CallbackPrx iceP_callback, ChatClientPrx iceP_client, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_subscribeAsync(ChatClientPrx iceP_client, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "subscribe", null, sync, null);
         f.invoke(false, context, null, ostr -> {
-                     ostr.writeProxy(iceP_callback);
                      ostr.writeProxy(iceP_client);
                  }, null);
         return f;
@@ -162,6 +160,43 @@ public interface ChatControllerPrx extends com.zeroc.Ice.ObjectPrx
         f.invoke(false, context, null, ostr -> {
                      ostr.writeString(iceP_hostname);
                  }, null);
+        return f;
+    }
+
+    default String[] getClients()
+    {
+        return getClients(com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default String[] getClients(java.util.Map<String, String> context)
+    {
+        return _iceI_getClientsAsync(context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<String[]> getClientsAsync()
+    {
+        return _iceI_getClientsAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<String[]> getClientsAsync(java.util.Map<String, String> context)
+    {
+        return _iceI_getClientsAsync(context, false);
+    }
+
+    /**
+     * @hidden
+     * @param context -
+     * @param sync -
+     * @return -
+     **/
+    default com.zeroc.IceInternal.OutgoingAsync<String[]> _iceI_getClientsAsync(java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<String[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getClients", null, sync, null);
+        f.invoke(true, context, null, null, istr -> {
+                     String[] ret;
+                     ret = istr.readStringSeq();
+                     return ret;
+                 });
         return f;
     }
 

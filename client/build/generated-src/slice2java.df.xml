@@ -1,5 +1,5 @@
 <state>
-  <timestamp value='1683563712653' />
+  <timestamp value='1683577067431' />
   <sourceSet name='default'>
     <source name='C:\Users\johan\Desktop\Proyectos de git\Distributed-computing-with-ICE\Printer.ice'>
       <file name='C:\Users\johan\Desktop\Proyectos de git\Distributed-computing-with-ICE\client\build\generated-src\Demo\Printer.java' />
@@ -7,11 +7,8 @@
       <file name='C:\Users\johan\Desktop\Proyectos de git\Distributed-computing-with-ICE\client\build\generated-src\Demo\_PrinterPrxI.java' />
     </source>
     <source name='C:\Users\johan\Desktop\Proyectos de git\Distributed-computing-with-ICE\Callback.ice'>
-      <file name='C:\Users\johan\Desktop\Proyectos de git\Distributed-computing-with-ICE\client\build\generated-src\Talker\Callback.java' />
       <file name='C:\Users\johan\Desktop\Proyectos de git\Distributed-computing-with-ICE\client\build\generated-src\Talker\ChatClient.java' />
       <file name='C:\Users\johan\Desktop\Proyectos de git\Distributed-computing-with-ICE\client\build\generated-src\Talker\ChatController.java' />
-      <file name='C:\Users\johan\Desktop\Proyectos de git\Distributed-computing-with-ICE\client\build\generated-src\Talker\CallbackPrx.java' />
-      <file name='C:\Users\johan\Desktop\Proyectos de git\Distributed-computing-with-ICE\client\build\generated-src\Talker\_CallbackPrxI.java' />
       <file name='C:\Users\johan\Desktop\Proyectos de git\Distributed-computing-with-ICE\client\build\generated-src\Talker\ChatClientPrx.java' />
       <file name='C:\Users\johan\Desktop\Proyectos de git\Distributed-computing-with-ICE\client\build\generated-src\Talker\_ChatClientPrxI.java' />
       <file name='C:\Users\johan\Desktop\Proyectos de git\Distributed-computing-with-ICE\client\build\generated-src\Talker\ChatControllerPrx.java' />

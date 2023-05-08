@@ -1,13 +1,10 @@
 module Talker
 {
     sequence<string> StringSeq;
-    interface Callback
-    {
-        void notifyCallback();
-    };
-
+    
     interface ChatClient
     {
+        void notifyCallback();
         void reciveMessage(string message);
     };
 
@@ -17,9 +14,11 @@ module Talker
 
         void broadcastMessage(string message);
 
-        void subscribe(Callback* callback, ChatClient* client);
+        void subscribe(ChatClient* client);
 
         void register(string hostname);
+        
+        StringSeq getClients();
     };
 
 }
