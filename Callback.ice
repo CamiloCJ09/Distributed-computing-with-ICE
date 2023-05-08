@@ -6,18 +6,20 @@ module Talker
         void notifyCallback();
     };
 
+    interface ChatClient
+    {
+        void reciveMessage(string message);
+    };
+
     interface ChatController
     {
         void sendMessage(string msg, string destination);
 
         void broadcastMessage(string message);
 
-        void register(string hostname);
-    };
+        void subscribe(Callback* callback, ChatClient* client);
 
-    interface ChatClient
-    {
-        void reciveMessage(string message);
+        void register(string hostname);
     };
 
 }

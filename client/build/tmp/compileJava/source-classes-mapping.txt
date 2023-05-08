@@ -4,11 +4,11 @@ Talker/_CallbackPrxI.java
  Talker._CallbackPrxI
 Talker/_ChatControllerPrxI.java
  Talker._ChatControllerPrxI
-Talker/CallbackPrx.java
- Talker.CallbackPrx
 Talker/ChatClient.java
  Talker.ChatClient
  Talker.ChatClient$1
+Talker/CallbackPrx.java
+ Talker.CallbackPrx
 Talker/ChatClientPrx.java
  Talker.ChatClientPrx
 Talker/Callback.java
@@ -26,5 +26,7 @@ Talker/ChatControllerPrx.java
  Talker.ChatControllerPrx
 Talker/_ChatClientPrxI.java
  Talker._ChatClientPrxI
+ChatClientImpl.java
+ ChatClientImpl
 Client.java
  Client
