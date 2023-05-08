@@ -17,9 +17,13 @@ public class Server
                 }
             }
             com.zeroc.Ice.ObjectAdapter adapter = communicator.createObjectAdapter("Printer");
+            com.zeroc.Ice.ObjectAdapter adapter2 = communicator.createObjectAdapter("Chat");
             com.zeroc.Ice.Object object = new PrinterI();
+            com.zeroc.Ice.Object object2 = new ChatImpl();
             adapter.add(object, com.zeroc.Ice.Util.stringToIdentity("SimplePrinter"));
+            adapter2.add(object2, com.zeroc.Ice.Util.stringToIdentity("SimpleChat"));
             adapter.activate();
+            adapter2.activate();
             communicator.waitForShutdown();
         }
     }

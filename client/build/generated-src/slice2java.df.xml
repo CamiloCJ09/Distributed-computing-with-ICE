@@ -1,12 +1,23 @@
 <state>
-  <timestamp value='1677021649811' />
+  <timestamp value='1683547742494' />
   <sourceSet name='default'>
-    <source name='C:\Users\johan\OneDrive\Escritorio\GIT\Distributed-computing-with-ICE\Printer.ice'>
-      <file name='C:\Users\johan\OneDrive\Escritorio\GIT\Distributed-computing-with-ICE\client\build\generated-src\Demo\Printer.java' />
-      <file name='C:\Users\johan\OneDrive\Escritorio\GIT\Distributed-computing-with-ICE\client\build\generated-src\Demo\PrinterPrx.java' />
-      <file name='C:\Users\johan\OneDrive\Escritorio\GIT\Distributed-computing-with-ICE\client\build\generated-src\Demo\_PrinterPrxI.java' />
+    <source name='C:\Users\johan\Desktop\Proyectos de git\Distributed-computing-with-ICE\Printer.ice'>
+      <file name='C:\Users\johan\Desktop\Proyectos de git\Distributed-computing-with-ICE\client\build\generated-src\Demo\Printer.java' />
+      <file name='C:\Users\johan\Desktop\Proyectos de git\Distributed-computing-with-ICE\client\build\generated-src\Demo\PrinterPrx.java' />
+      <file name='C:\Users\johan\Desktop\Proyectos de git\Distributed-computing-with-ICE\client\build\generated-src\Demo\_PrinterPrxI.java' />
     </source>
-    <arg value='C:\Program Files\ZeroC\Ice-3.7.8\\bin\slice2java.exe' />
-    <arg value='-IC:\Program Files\ZeroC\Ice-3.7.8\\slice' />
+    <source name='C:\Users\johan\Desktop\Proyectos de git\Distributed-computing-with-ICE\Callback.ice'>
+      <file name='C:\Users\johan\Desktop\Proyectos de git\Distributed-computing-with-ICE\client\build\generated-src\Talker\Callback.java' />
+      <file name='C:\Users\johan\Desktop\Proyectos de git\Distributed-computing-with-ICE\client\build\generated-src\Talker\ChatController.java' />
+      <file name='C:\Users\johan\Desktop\Proyectos de git\Distributed-computing-with-ICE\client\build\generated-src\Talker\ChatClient.java' />
+      <file name='C:\Users\johan\Desktop\Proyectos de git\Distributed-computing-with-ICE\client\build\generated-src\Talker\CallbackPrx.java' />
+      <file name='C:\Users\johan\Desktop\Proyectos de git\Distributed-computing-with-ICE\client\build\generated-src\Talker\_CallbackPrxI.java' />
+      <file name='C:\Users\johan\Desktop\Proyectos de git\Distributed-computing-with-ICE\client\build\generated-src\Talker\ChatControllerPrx.java' />
+      <file name='C:\Users\johan\Desktop\Proyectos de git\Distributed-computing-with-ICE\client\build\generated-src\Talker\_ChatControllerPrxI.java' />
+      <file name='C:\Users\johan\Desktop\Proyectos de git\Distributed-computing-with-ICE\client\build\generated-src\Talker\ChatClientPrx.java' />
+      <file name='C:\Users\johan\Desktop\Proyectos de git\Distributed-computing-with-ICE\client\build\generated-src\Talker\_ChatClientPrxI.java' />
+    </source>
+    <arg value='C:\Program Files\ZeroC\Ice-3.7.9\\bin\slice2java.exe' />
+    <arg value='-IC:\Program Files\ZeroC\Ice-3.7.9\\slice' />
   </sourceSet>
 </state>
