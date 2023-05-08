@@ -7,5 +7,11 @@ public class ChatClientImpl implements ChatClient{
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'reciveMessage'");
     }
+
+    @Override
+    public void notifyCallback(Current current) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'notifyCallback'");
+    }
     
 }
