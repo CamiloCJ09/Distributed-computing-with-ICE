@@ -1,12 +1,22 @@
+import java.util.ArrayList;
+import java.util.List;
+
 import com.zeroc.Ice.Current;
 import Talker.*;
 
 public class ChatImpl implements ChatController {
 
+    private List<String> clients;
+   
+
+    public ChatImpl(){
+        clients = new ArrayList<>();
+    }
+
     @Override
     public void sendMessage(String msg, String destination, Current current) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'sendMessage'");
+            
     }
 
     @Override
@@ -23,14 +33,13 @@ public class ChatImpl implements ChatController {
 
     @Override
     public void register(String hostname, Current current) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'register'");
+        clients.add(hostname);
     }
 
     @Override
     public String[] getClients(Current current) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getClients'");
+        String[] clientsArr = new String[clients.size()];
+        return clients.toArray(clientsArr);
     }
 
  

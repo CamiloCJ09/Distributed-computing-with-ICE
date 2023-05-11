@@ -2,15 +2,18 @@
 clients=$(cat clients.txt | wc -l)
 cd ..
 gradle clean
-gradle build
+
 
 
 echo "Deploy Server"
 #Set de amount of clients 
 sed -i "s/#Ice.ThreadPool.Server.Size=n/Ice.ThreadPool.Server.Size=$clients/g" server/src/main/resources/config.server
+gradle build
+
 cd server/build/libs || exit
-sshpass -p "swarch" scp -o StrictHostKeyChecking=no -r server.jar swarch@10.147.19.158:/home/swarch/johanRicardo-CamiloCampaz/callback-server-deploy
-sshpass -p "swarch" scp -o StrictHostKeyChecking=no -r ice-3.7.6.jar swarch@10.147.19.158:/home/swarch/johanRicardo-CamiloCampaz/callback-server-deploy
+
+sshpass -p "swarch" scp -o StrictHostKeyChecking=no -r ./*.jar swarch@10.147.19.158:/home/swarch/johanRicardo-CamiloCampaz/callback-server-deploy
+
 
 cd ../..
 echo "Deploy Clients"
