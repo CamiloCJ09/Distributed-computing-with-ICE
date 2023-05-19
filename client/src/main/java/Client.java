@@ -29,15 +29,17 @@ public class Client {
             System.out.println("BIENVENIDO\n Ingrese una opcion: ");
             System.out.println("1) Para ejecutar las funciones de fibbonacci");
             System.out.println("2) Iniciar el chat con diferentes funciones");
+            String option = "";
+            if(args.length > 0){
+                option = args[0];
+            }else{
+                option = scanner.nextLine();
+            }
             
-            String option = scanner.nextLine();
-
-            int selection = Integer.parseInt(option);
-
-            switch(selection){
-                case 1: fibbonacci(printer);
+            switch(option){
+                case "1": fibbonacci(printer, args.length > 0 ? args : null);
                     break;
-                case 2: chat(chat);
+                case "2": chat(chat);
                     break;    
             }
             
@@ -48,12 +50,23 @@ public class Client {
         }
     }
 
-    private static void fibbonacci(Demo.PrinterPrx printer) throws UnknownHostException {
+    private static void fibbonacci(Demo.PrinterPrx printer, String [] input) throws UnknownHostException {
         String localIP = InetAddress.getLocalHost().getHostName();
         String defaultText = "¿Que numero de la serie fibonacci desea ver?";
         System.out.println(defaultText);
-        String n = scanner.nextLine();
+       
+        if(input == null){
+            readFromScanner(printer, localIP, defaultText);    
+        }else{
+            readFromArgs(printer, localIP, input);
+        }
+       
+         
+        
+    }
 
+    private static void readFromScanner(Demo.PrinterPrx printer, String localIP, String defaultText) {
+        String n = scanner.nextLine();
         while (!n.equalsIgnoreCase("exit")) {
             if (Integer.parseInt(n) >= 0) {
             //    int fibo = Integer.parseInt(n);
@@ -69,6 +82,15 @@ public class Client {
             }
 
         }
+    }
+
+    private static void readFromArgs(Demo.PrinterPrx printer, String localIP, String [] input){
+        for (int i = 1; i < input.length; i++) {
+            String number = printer.fibonacciString(localIP + ":" + input[i]);
+            System.out.println(localIP + ": " + number);
+            System.out.println("Funciona con valor: "+input[i]);
+        }
+
     }
 
     private static void chat(Talker.ChatControllerPrx chat){
