@@ -4,8 +4,7 @@ public class ChatClientImpl implements ChatClient{
 
     @Override
     public void reciveMessage(String message, Current current) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'reciveMessage'");
+        System.out.println("Recived message: " + message);
     }
 
     @Override

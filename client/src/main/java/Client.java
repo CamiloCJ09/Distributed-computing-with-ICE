@@ -73,5 +73,8 @@ public class Client {
 
     private static void chat(Talker.ChatControllerPrx chat){
         //TODO: IMPLEMENT
+        System.out.println("Chat: Ingrese el mensaje a enviar");
+        String message = scanner.nextLine();
+        chat.sendMessage(null, null, null);
     }
 }
