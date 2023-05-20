@@ -1,0 +1,11 @@
+Es el turno de hgrid1.icesi.edu.co
+hgrid1.icesi.edu.co esta probando con  : 50 el server respondio: 12586269025
+
+com.zeroc.Ice.ConnectionTimeoutException
+com.zeroc.Ice.ConnectionTimeoutException
+
+Es el turno de hgrid2.icesi.edu.co
+hgrid2.icesi.edu.co esta probando con  : 40 el server respondio: 102334155
+
+com.zeroc.Ice.ConnectionTimeoutException
+com.zeroc.Ice.ConnectionTimeoutException

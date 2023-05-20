@@ -10,4 +10,3 @@ Chat.Endpoints=tcp -p 9098
 # Now listen on the ZeroTier's LIASOn7 interface
 Ice.Default.Host=10.147.19.158
 #Ice.Default.Host=localhost
-#Ice.ThreadPool.Server.Size=n

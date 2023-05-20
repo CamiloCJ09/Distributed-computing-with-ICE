@@ -45,3 +45,8 @@ java -jar server/build/libs/server.jar
 java -jar client/build/libs/client.jar
 ```
 The client runs and exits without producing any output; however, in the server window, we see the fibonaccidd that is produced by the printer. To get rid of the server, we interrupt it on the command line for now. 
+
+## Now you can run the clients automatically  🎇
+use the script <b>run_clients.sh</b> and send all the jar files remotly <br> and check the ouput in the file <b>finalLog.txt</b> to the their behaivour with multiple requests to the server , all al the same time.
+
+You can also check a report that explain the results of this test [here]()

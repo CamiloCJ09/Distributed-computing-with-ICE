@@ -5,10 +5,10 @@ Demo/_PrinterPrxI.java
  Demo._PrinterPrxI
 Talker/_ChatControllerPrxI.java
  Talker._ChatControllerPrxI
-PrinterI.java
- PrinterI
-Server.java
- Server
+ChatImpl.java
+ ChatImpl
+Talker/_ChatClientPrxI.java
+ Talker._ChatClientPrxI
 Talker/ChatClient.java
  Talker.ChatClient
  Talker.ChatClient$1
@@ -21,7 +21,7 @@ Demo/PrinterPrx.java
  Demo.PrinterPrx
 Talker/ChatControllerPrx.java
  Talker.ChatControllerPrx
-Talker/_ChatClientPrxI.java
- Talker._ChatClientPrxI
-ChatImpl.java
- ChatImpl
+PrinterI.java
+ PrinterI
+Server.java
+ Server

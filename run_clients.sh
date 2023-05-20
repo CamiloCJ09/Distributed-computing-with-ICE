@@ -1,39 +1,63 @@
 #!/bin/bash
-file="clients.txt"
-numbers=7000
+clientsFile="hosts.txt"
+argsFile="input.txt"
 machine=1
+clients=()
+args=()
 
-mapfile -t clients < "$file"
 
+#mapfile -t clients < "$hosts"
+#mapfile -t args < "$numbers"
+IFS=','
+while IFS= read -r line; do
+     IFS=',' read -ra elements <<< "$line"
+    clients+=("${elements[@]}")
+done < "$clientsFile"
+
+while IFS= read -r line; do
+     IFS=',' read -ra elements <<< "$line"
+    args+=("${elements[@]}")
+done < "$argsFile"
+
+echo "enviando archivos jar"
 
 for client in "${clients[@]}";do
   cd client/build/libs || exit
-  echo "enviando archivos jar a xhgrid$machine"
-  sshpass -p "swarch" scp -o StrictHostKeyChecking=no  client.jar swarch@xhgrid$machine:/home/swarch/deploy-fibbo 
-   sshpass -p "swarch" scp -o StrictHostKeyChecking=no  ice-3.7.6.jar swarch@xhgrid$machine:/home/swarch/deploy-fibbo 
+  echo "enviando jar al cliente swarch@$client"
+  sshpass -p "swarch" scp -o StrictHostKeyChecking=no  client.jar swarch@"$client":/home/swarch/deploy-fibbo 
+   #sshpass -p "swarch" scp -o StrictHostKeyChecking=no  ice-3.7.6.jar swarch@xhgrid"$client":/home/swarch/deploy-fibbo 
   cd ../../.. || exit
-  ((machine++))
 done
+
 machine=1
 echo "Ejecutando archivos jar"
-for client in "${clients[@]}";do
-  echo "ejecutando archivo jar en xhgrid$machine"
-  sshpass -p "swarch" ssh -o StrictHostKeyChecking=no swarch@xhgrid$machine "cd deploy-fibbo; nohup java -cp "./*" Client $numbers > output.txt 2>&1" &
-  ((machine++))
-done
+for arg in "${args[@]}";do
+ trimed_arg="$(echo -e "${arg}" | sed -e 's/[[:space:]]*$//')"
+ for client in "${clients[@]}";do
+    echo "ejecutando archivo jar en $client"
+    echo "se esta probando con el valor $trimed_arg"
+    sshpass -p "swarch" ssh -o StrictHostKeyChecking=no swarch@"$client" "cd deploy-fibbo; nohup java -jar client.jar $trimed_arg >> output_$machine.txt 2>&1" &
+    ((machine++))
+  done
+  machine=1
+done 
 
 wait
 
 echo "Obteniendo reportes"
 machine=1
 for client in "${clients[@]}";do
-  echo "reporte de xhgrid$machine"
-  sshpass -p "swarch" scp -o StrictHostKeyChecking=no swarch@xhgrid$machine:/home/swarch/deploy-fibbo/output.txt ./report/log_"$client".txt
+  echo "reporte de $client"
+  sshpass -p "swarch" scp -o StrictHostKeyChecking=no swarch@"$client":/home/swarch/deploy-fibbo/output_$machine.txt  ./reports
   ((machine++))
 done
 
 cd reports || exit
 
-cat log_*.txt > finalLog.txt
+
+cat output_*.txt > finalLog.txt
+
+rm output_*.txt
 
 
+  
