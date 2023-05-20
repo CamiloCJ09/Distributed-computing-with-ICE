@@ -18,7 +18,9 @@ public class ChatImpl implements ChatController {
     public void sendMessage(String msg, String destination, Current current) {
         System.out.println("Sending message: " + msg + " to: " + destination);
         new Thread(() -> {
-            
+            ChatClientPrx callbackPrx = getCallbackPrx(hostname);
+            System.out.println("new Message: " + msg);
+            comand(msg, callbackPrx, current);
         }).start();
             
     }
