@@ -49,4 +49,8 @@ The client runs and exits without producing any output; however, in the server w
 ## Now you can run the clients automatically  🎇
 use the script <b>run_clients.sh</b> and send all the jar files remotly <br> and check the ouput in the file <b>finalLog.txt</b> to the their behaivour with multiple requests to the server , all al the same time.
 
-You can also check a report that explain the results of this test [here]()
+```bash
+./run_clients.sh
+```
+
+You can also check a report that explain the results of this test [here](https://github.com/CamiloCJ09/Distributed-computing-with-ICE/blob/part1/doc/Reporte%20parte%201.pdf)
