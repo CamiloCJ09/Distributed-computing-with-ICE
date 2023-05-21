@@ -1,4 +1,11 @@
 import java.util.Scanner;
+
+import com.zeroc.Ice.ObjectAdapter;
+import com.zeroc.Ice.ObjectPrx;
+import com.zeroc.Ice.Util;
+
+import Talker.ChatClientPrx;
+
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
@@ -72,10 +79,23 @@ public class Client {
     }
 
     private static void chat(Talker.ChatControllerPrx chat) throws UnknownHostException{
+        String[] args = {};
+        try (com.zeroc.Ice.Communicator communicator = com.zeroc.Ice.Util.initialize(args, "config.client")) {
+            Talker.ChatControllerPrx chatManagerPrx = Talker.ChatControllerPrx
+                    .checkedCast(communicator.propertyToProxy("ChatManager.Proxy"));
+            ObjectAdapter adapter = communicator.createObjectAdapter("Callback");
+            ChatClientImpl chatClientImpl = new ChatClientImpl();
+            ObjectPrx objectPrx = adapter.add(chatClientImpl, Util.stringToIdentity("chatClient"));
+            adapter.activate();
+        }
+        
+        
+        ChatClientPrx chatClientPrx = ChatClientPrx.checkedCast(objectPrx);
         String localIP = InetAddress.getLocalHost().getHostName();
         //TODO: IMPLEMENT
         System.out.println("Chat: Ingrese el mensaje a enviar");
         String message = scanner.nextLine();
         chat.sendMessage(message, localIP);
+        chat.register(localIP, chatClientPrx);
     }
 }
