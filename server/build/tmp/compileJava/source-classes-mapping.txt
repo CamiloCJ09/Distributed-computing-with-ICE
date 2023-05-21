@@ -1,27 +1,29 @@
 Demo/_PrinterPrxI.java
  Demo._PrinterPrxI
-Demo/Printer.java
- Demo.Printer
- Demo.Printer$1
+ClientManager.java
+ ClientManager
 Talker/_ChatControllerPrxI.java
  Talker._ChatControllerPrxI
-PrinterI.java
- PrinterI
 Talker/ChatClient.java
  Talker.ChatClient
  Talker.ChatClient$1
-Server.java
- Server
 Talker/ChatClientPrx.java
  Talker.ChatClientPrx
-Demo/PrinterPrx.java
- Demo.PrinterPrx
 Talker/ChatController.java
  Talker.ChatController
  Talker.ChatController$1
-Talker/_ChatClientPrxI.java
- Talker._ChatClientPrxI
+Demo/PrinterPrx.java
+ Demo.PrinterPrx
+Demo/Printer.java
+ Demo.Printer
+ Demo.Printer$1
+PrinterI.java
+ PrinterI
+Server.java
+ Server
 Talker/ChatControllerPrx.java
  Talker.ChatControllerPrx
+Talker/_ChatClientPrxI.java
+ Talker._ChatClientPrxI
 ChatImpl.java
  ChatImpl

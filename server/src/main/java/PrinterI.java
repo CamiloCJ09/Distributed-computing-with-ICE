@@ -9,24 +9,26 @@ public class PrinterI implements Demo.Printer {
     // Test 1
     public String fibonacciString(String n, com.zeroc.Ice.Current current) {
         String array[] = n.split(":");
-        int num = Integer.parseInt(array[1]);
-        
-
-        int[] fib = new int[num];
-        fib[0] = 0;
-        if (num > 1) {
-            fib[1] = 1;
-            for (int i = 2; i < num; i++) {
-                fib[i] = fib[i - 1] + fib[i - 2];
-            }
-        }
-
+        long num = Long.parseLong(array[1]);
+       
         String fibString = "";
-        for (int i = 0; i < num; i++) {
-            fibString += fib[i] + " ";
-        }
+        for (long i = 1; i <= num; i++) {
+			fibString+= fibbonacci(i) + ",";
+		}
         System.out.println("Cliente: " + array[0] + " numero: " + fibString);
-        return String.valueOf(fib[num - 1]);
+        return fibString;
 
+    }
+
+    private long fibbonacci(long n){
+        if(n <= 0){
+            return 0;
+        }
+
+        if (n == 1){
+            return 1;
+        }
+
+        return fibbonacci(n-1) + fibbonacci(n-2);
     }
 }
