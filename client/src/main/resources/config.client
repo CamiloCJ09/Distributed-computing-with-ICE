@@ -4,6 +4,7 @@
 #
 Printer.Proxy=SimplePrinter:tcp -p 9099
 Chat.Proxy=SimpleChat:tcp -p 9098
+Callback.Endpoints=tcp -h localhost -p 9097
 
 
 # Uncomment to use the WebSocket transports instead.
@@ -15,3 +16,5 @@ Chat.Proxy=SimpleChat:tcp -p 9098
 #
 Ice.Default.Host=10.147.19.158
 #Ice.Default.Host=localhost
+Ice.Package.Talker=com.zeroc
+Ice.Default.Package=com.zeroc

@@ -11,3 +11,5 @@ Chat.Endpoints=tcp -p 9098
 Ice.Default.Host=10.147.19.158
 #Ice.Default.Host=localhost
 Ice.ThreadPool.Server.Size=3
+Ice.Package.Talker=com.zeroc
+Ice.Default.Package=com.zeroc
