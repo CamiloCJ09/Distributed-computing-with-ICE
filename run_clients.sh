@@ -2,22 +2,22 @@
 clientsFile="hosts.txt"
 argsFile="input.txt"
 machine=1
-clients=()
-args=()
+clients=("xhgrid1" "xhgrid2" "xhgrid3")
+args=("40" "47" "50")
 
 
 #mapfile -t clients < "$hosts"
 #mapfile -t args < "$numbers"
-IFS=','
-while IFS= read -r line; do
-     IFS=',' read -ra elements <<< "$line"
-    clients+=("${elements[@]}")
-done < "$clientsFile"
+#IFS=','
+#while IFS= read -r line; do
+#     IFS=',' read -ra elements <<< "$line"
+#    clients+=("${elements[@]}")
+#done < "$clientsFile"
 
-while IFS= read -r line; do
-     IFS=',' read -ra elements <<< "$line"
-    args+=("${elements[@]}")
-done < "$argsFile"
+#while IFS= read -r line; do
+  #   IFS=',' read -ra elements <<< "$line"
+ #   args+=("${elements[@]}")
+#done < "$argsFile"
 
 echo "enviando archivos jar"
 
