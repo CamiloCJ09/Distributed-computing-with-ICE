@@ -71,10 +71,11 @@ public class Client {
         }
     }
 
-    private static void chat(Talker.ChatControllerPrx chat){
+    private static void chat(Talker.ChatControllerPrx chat) throws UnknownHostException{
+        String localIP = InetAddress.getLocalHost().getHostName();
         //TODO: IMPLEMENT
         System.out.println("Chat: Ingrese el mensaje a enviar");
         String message = scanner.nextLine();
-        chat.sendMessage(null, null, null);
+        chat.sendMessage(message, localIP);
     }
 }
