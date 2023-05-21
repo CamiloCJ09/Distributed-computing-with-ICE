@@ -59,11 +59,12 @@ chmod +x script.sh
 Option 1: Using the bash command:
 ```
 ```bash
-./script.sh
+./run_clients.sh
 ```
 In this approach, you use the path to the script file directly, preceded by ./.
 
-Note: Make sure you are in the correct directory or provide the full path to the script file when executing it.
+Note: Make sure you are in the correct directory or provide the full path to the script file when executing it. <br>
+Note 2: To see the functional part of this teste check the branch used for this test [Here](https://github.com/CamiloCJ09/Distributed-computing-with-ICE/tree/part1)
 
 By executing the Bash script file using one of the methods mentioned above, the commands and instructions in the script file will be executed sequentially in the Bash shell.
 
