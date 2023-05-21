@@ -24,8 +24,7 @@ public class Client {
             // Demo.PrinterPrx printer = Demo.PrinterPrx.checkedCast(base);
 
             Talker.ChatControllerPrx tControllerPrx = Talker.ChatControllerPrx.checkedCast(
-                communicator.propertyToProxy("Chat.Proxy").ice_twoway().ice_secure(false)
-            );
+                    communicator.propertyToProxy("Chat.Proxy").ice_twoway().ice_secure(false));
             Demo.PrinterPrx printer = twoway.ice_twoway();
             Talker.ChatControllerPrx chat = tControllerPrx.ice_twoway();
 
@@ -36,20 +35,21 @@ public class Client {
             System.out.println("BIENVENIDO\n Ingrese una opcion: ");
             System.out.println("1) Para ejecutar las funciones de fibbonacci");
             System.out.println("2) Iniciar el chat con diferentes funciones");
-            
+
             String option = scanner.nextLine();
 
             int selection = Integer.parseInt(option);
 
-            switch(selection){
-                case 1: fibbonacci(printer);
+            switch (selection) {
+                case 1:
+                    fibbonacci(printer);
                     break;
-                case 2: chat(chat);
-                    break;    
+                case 2:
+                    chat(chat);
+                    break;
             }
-            
-            
-        }catch(Exception exception){
+
+        } catch (Exception exception) {
             System.err.println(exception);
             System.exit(1);
         }
@@ -63,7 +63,7 @@ public class Client {
 
         while (!n.equalsIgnoreCase("exit")) {
             if (Integer.parseInt(n) >= 0) {
-            //    int fibo = Integer.parseInt(n);
+                // int fibo = Integer.parseInt(n);
                 String number = printer.fibonacciString(localIP + ":" + n);
                 System.out.println(localIP + ": " + number);
                 System.out.println(defaultText);
@@ -78,7 +78,7 @@ public class Client {
         }
     }
 
-    private static void chat(Talker.ChatControllerPrx chat) throws UnknownHostException{
+    private static void chat(Talker.ChatControllerPrx chat) throws UnknownHostException {
         String[] args = {};
         try (com.zeroc.Ice.Communicator communicator = com.zeroc.Ice.Util.initialize(args, "config.client")) {
             Talker.ChatControllerPrx chatManagerPrx = Talker.ChatControllerPrx
@@ -87,15 +87,14 @@ public class Client {
             ChatClientImpl chatClientImpl = new ChatClientImpl();
             ObjectPrx objectPrx = adapter.add(chatClientImpl, Util.stringToIdentity("chatClient"));
             adapter.activate();
+            ChatClientPrx chatClientPrx = ChatClientPrx.checkedCast(objectPrx);
+            String localIP = InetAddress.getLocalHost().getHostName();
+            // TODO: IMPLEMENT
+            System.out.println("Chat: Ingrese el mensaje a enviar");
+            String message = scanner.nextLine();
+            chat.sendMessage(message, localIP);
+            chat.register(localIP, chatClientPrx);
         }
-        
-        
-        ChatClientPrx chatClientPrx = ChatClientPrx.checkedCast(objectPrx);
-        String localIP = InetAddress.getLocalHost().getHostName();
-        //TODO: IMPLEMENT
-        System.out.println("Chat: Ingrese el mensaje a enviar");
-        String message = scanner.nextLine();
-        chat.sendMessage(message, localIP);
-        chat.register(localIP, chatClientPrx);
+
     }
 }
