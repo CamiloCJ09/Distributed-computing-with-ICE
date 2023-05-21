@@ -85,19 +85,18 @@ public class ChatImpl implements ChatController {
     }
 
     @Override
-    public void subscribe(ChatClientPrx client, Current current) {
+    public void subscribe(ChatClientPrx client,String hostname ,Current current) {
         System.out.println("Registering client: ");
-        ClientManager clientManager = new ClientManager(client, client.ip);
+        ClientManager clientManager = new ClientManager(client, hostname);
         if(!clients.contains(clientManager)){
             clients.add(clientManager);
         }
-        throw new UnsupportedOperationException("Unimplemented method 'subscribe'");
     }
 
     @Override
-    public void register(String hostname, Current current) {
+    public void register(String hostname, ChatClientPrx client, Current current) {
         System.out.println("Registering client: " + hostname);
-        ClientManager clientManager = new ClientManager(ChatClientPrx.uncheckedCast(current.con.createProxy(current.id)), hostname);
+        ClientManager clientManager = new ClientManager(client, hostname);
         if(!clients.contains(clientManager)){
             clients.add(clientManager);
         }

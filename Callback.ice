@@ -14,9 +14,9 @@ module Talker
 
         void broadcastMessage(string message);
 
-        void subscribe(ChatClient* client);
+        void subscribe(ChatClient* client, string hostname);
 
-        void register(string hostname);
+        void register(string hostname, ChatClient* client);
         
         StringSeq getClients();
     };
