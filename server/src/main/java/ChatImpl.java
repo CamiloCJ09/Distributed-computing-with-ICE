@@ -35,7 +35,7 @@ public class ChatImpl implements ChatController {
             String message = msg.split("to ")[1].split(":")[1];
             for(ClientManager client : clients){
                 if(client.getChatClientPrx().equals(callbackPrx)){
-                    sendMessages(msg, client.getChatClientPrx());
+                    sendMessages(message, client.getChatClientPrx());
                 }
             }
         } else if (msg.toLowerCase().equals("help")) {
@@ -86,7 +86,11 @@ public class ChatImpl implements ChatController {
 
     @Override
     public void subscribe(ChatClientPrx client, Current current) {
-        // TODO Auto-generated method stub
+        System.out.println("Registering client: ");
+        ClientManager clientManager = new ClientManager(client, client.ip);
+        if(!clients.contains(clientManager)){
+            clients.add(clientManager);
+        }
         throw new UnsupportedOperationException("Unimplemented method 'subscribe'");
     }
 
