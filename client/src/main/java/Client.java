@@ -84,14 +84,14 @@ public class Client {
          //   Talker.ChatControllerPrx chatManagerPrx = Talker.ChatControllerPrx
            //         .checkedCast(communicator.propertyToProxy("ChatManager.Proxy"));
             ObjectAdapter adapter = communicator.createObjectAdapter("Callback");
-            ChatClientImpl chatClientImpl = new ChatClientImpl();
+            ChatClientImpl chatClientImpl = new ChatClientImpl(chat);
             ObjectPrx objectPrx = adapter.add(chatClientImpl, Util.stringToIdentity("chatClient"));
             adapter.activate();
             ChatClientPrx chatClientPrx = ChatClientPrx.checkedCast(objectPrx);
             String localIP = InetAddress.getLocalHost().getHostName();
             // TODO: IMPLEMENT
-            System.out.println(localIP);
-            System.out.println(chatClientPrx);
+            //System.out.println(localIP);
+            //System.out.println(chatClientPrx);
             chat.register(localIP, chatClientPrx);
             System.out.println("Ha sido registrado al chat como: "+localIP);
             System.out.println("Chat: Ingrese el mensaje a enviar, si no sabe a quien use <list clients>");
