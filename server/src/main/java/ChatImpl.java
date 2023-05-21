@@ -46,9 +46,10 @@ public class ChatImpl implements ChatController {
 
         }else if(msg.contains("fibonacci:")){
             String result = fibonacciString(msg);
-            callbackPrx.reciveMessage("resultado: "+result);
+            System.out.println(callbackPrx);
+            sendMessages("resultado: "+result, callbackPrx);
         } else {
-            callbackPrx.reciveMessage("comando no reconocido");
+            sendMessages("comando no reconocido", callbackPrx);
         }
 
     }
